@@ -66,6 +66,14 @@ ImageView infobutton;
         tv.setTypeface(typeface);
 
         ImageView button1=(ImageView)findViewById(R.id.button);
+        infobutton=(ImageView) findViewById(R.id.button2);
+        infobutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,infoactivity.class);
+                startActivity(i);
+            }
+        });
         button1.setVisibility(View.INVISIBLE);
 
 
@@ -104,7 +112,7 @@ ImageView infobutton;
 
             }
         });
-        infobutton=(ImageView) findViewById(R.id.button2);
+
 
 
 
@@ -192,12 +200,7 @@ ImageView infobutton;
 
                             mAdapter=new MOvieAdapater(MainActivity.this,moviesList);
                             listView.setAdapter(mAdapter);
-                            infobutton.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    listView.smoothScrollToPositionFromTop(listView.getLastVisiblePosition(), AbsListView.CHOICE_MODE_SINGLE);
-                                }
-                            });
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
